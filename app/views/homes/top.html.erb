@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h1>
+      <%= Date.current.strftime('%Y年%m月%d日') %>
+      （<%= Time.now.strftime("%A") %>）  →　
+      <%= @elapsed_date %>日経過
+    </h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @blogs.each do |blog| %>
+      <div class="col">
+        <div class="card h-50">
+          <img src="..." class="card-img-top" alt="..."/>
+          <div class="card-body">
+              <h5 class="card-title"><%- blog.title %></h5>
+              <p class="card-text"><%= blog.body %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
