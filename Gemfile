@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pry-byebug'
 gem 'image_processing'
+gem "refile", require: "refile/rails", github: 'refile/refile'
+gem 'mini_magick'

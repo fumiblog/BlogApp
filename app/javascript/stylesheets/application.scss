@@ -1,2 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import '~trix/dist/trix';
+
+.row_top {
+  margin-top: 60px;
+  padding: 4px;
+ }
+
+ .card-img-top {
+   background-color: gray;
+ }
