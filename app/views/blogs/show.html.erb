@@ -5,13 +5,13 @@
     
 
     <p>
-      <strong>Title:</strong>
-      
+      <%= attachment_image_tag @blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "200x200" %>
+      <%= @blog.title %>
+      <%= @blog.summary %>
       <%= @blog.body %>
     </p>
 
-    <div class="card" style="width: 18rem;">
-    </div>
+    
 
     <%= link_to 'Edit', edit_blog_path(@blog) %> |
     <%= link_to 'Back', blogs_path %>

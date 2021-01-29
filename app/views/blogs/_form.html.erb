@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= attachment_image_tag @blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></br>
+    <%= form.attachment_field :image %>
     <%= form.label :記事タイトル %>
     <%= form.text_field :title, :size => "40" %></br>
+    <%= form.label :要約 %>
+    <%= form.text_field :summary, :size => "80" %></br>
     <%= form.label :記事内容 %>
     <%= form.rich_text_area :body %>
   </div>
