@@ -60,3 +60,7 @@ gem 'pry-byebug'
 gem 'image_processing'
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem 'mini_magick'
+
+#backend
+gem 'kaminari'
+gem 'meta-tags'
