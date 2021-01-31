@@ -15,10 +15,12 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @categories = Category.all
   end
 
   # GET /blogs/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /blogs or /blogs.json
@@ -66,6 +68,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :summary, :image)
+      params.require(:blog).permit(:title, :body, :summary, :image, :category_id)
     end
 end

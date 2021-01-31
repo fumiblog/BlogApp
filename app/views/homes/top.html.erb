@@ -3,21 +3,23 @@
     <div class="col-md-7">
     <h3>Blogs</h3>
     <% @blogs.each do |blog| %>
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <%= attachment_image_tag blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "150x150" %>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= blog.title %></h5>
-              <p class="card-text"><%= blog.summary %></p>
-              <p class="card-text"><small class="text-muted"><%= blog.created_at.to_s(:published_on) %></small></p>
+      <%= link_to blog do %>
+        <div class="card mb-3" style="max-width: 600px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <%= attachment_image_tag blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "150x150" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <p class="card-text"><%= blog.summary %></p>
+                <p class="card-text"><small class="text-muted"><%= blog.created_at.strftime('%Y-%m-%d') %></small>　更新<small class="text-muted"><%= blog.updated_at.strftime('%Y-%m-%d') %></small></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <% end %>
+    <% end %>
     </div>
       <div class="col-md-5">
       <h3>Category</h3>
@@ -27,10 +29,15 @@
           </tr>
           <% @categories.each do |category| %>
           <tr>
-            <td><%= link_to category.name, root_path %></td>
+            <td><%= link_to category.name, root_path(:category_id => category.id) %>[ <%= category.blogs.count.to_i %>記事 ]</td>
           </tr>
           <% end %>
         </table>
+        <div class="profile">
+          <p>Profile</br></br>
+          Name：Fumihisa yano
+          </p>
+        </div>
       </div>
 
     </div>
