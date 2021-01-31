@@ -1,0 +1,42 @@
+class Admins::FootprintsController < ApplicationController
+
+  def index
+    # byebug
+    if params[:genre_id] === nil
+      @footprints = Footprint.all.order(date: :desc) 
+    else
+      @footprints = Footprint.where(genre_id: params[:genre_id]).order(date: :desc) 
+    end
+    @footprint = Footprint.new
+    @genres = Genre.all
+    # byebug
+  end
+
+  def create
+    @footprint = Footprint.new(footprint_params)
+    @genres = Genre.all
+    @footprint.save
+    redirect_to admins_footprints_path
+  end
+
+  def edit
+    @footprint = Footprint.find(params[:id])
+    @genres = Genre.all
+    @footprint.update
+    redirect_to admins_footprints_path
+  end
+
+  def destroy
+    @footprint = Footprint.find(params[:id])
+    # byebug
+    @footprint.destroy
+    redirect_to admins_footprints_path
+  end
+
+  private
+
+  def footprint_params
+    params.require(:footprint).permit(:date, :title, :price, :body, :genre_id)
+  end
+
+end
