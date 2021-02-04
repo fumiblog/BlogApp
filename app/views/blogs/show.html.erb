@@ -1,76 +1,20 @@
-  <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
 
-  <div class="top-menu">
-    <div class="container-fluid">
-      <table class="top-menu--list">
-        <tr>
-          <th><%= link_to "All", root_path, class: "top-menu--list-item" %></th>
-          <th><%= link_to "Life", root_path(:category_id => "1"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Gadgets", root_path(:category_id => "2"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Tech", root_path(:category_id => "3"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Music", root_path(:category_id => "4"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "About", root_path(:category_id => "5"), class: "top-menu--list-item" %></th>
-        </tr>
-      </table>
-    </div>
-  </div>
-  </header>
-  <div class="container">
-  <div class="post-wrapper">
-    <div class="container-fluid main-container">
-      <div class="row">
-        <div class="col-md-9 col-lg-8 col-lg-offset-1">
-          <div class="post">
-            <div class="post-date">
-              <div class="post-date-published">
-                <%= @blog.created_at.to_s(:published_on) %>
-              </div>
-            </div>
-            <h1 class="post-title"><%= @blog.title %></h1>
-            <div class="post-info" ontouchstart="">
-              <div class="post-info--category">
-                <%#= fa_icon "home" %> <%= link_to "Home", root_path %> / <%= link_to @blog.category.name, root_path %>
-              </div>
-              <h3><%= @blog.summary %></h3>
-              <%# <div class="post-info--tags">
-                <% @post.tags.each do |tag| %>
-                  <%# <div class="tag"><%= link_to "##{tag.name}", "../tags/#{tag.name}" %>
-                <%# <% end %> 
-              <%# </div> %> 
-            </div>
-            <div class="post-text">
-              <%= @blog.body %>
-            </div>
-            <%# <div class="post-sns">
-              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
-              <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-            </div> %>
-          </div>
-          <div class="previous_next">
-            <div class="next">
-              <%= attachment_image_tag @blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %>
-            </div>
-            <div class="previous">
-              <%= link_to 'Edit', edit_blog_path(@blog) %>　|　
-              <%= link_to 'Back', blogs_path %>
-            </div>
-          </div>
-          <div class="row similar-posts">
-            <h4 class="similar-posts--title">You Might Like</h4>
-            <%#= render partial: 'similar_post', collection: @similar_posts, as: :similar_post %>
-          </div>
-        </div>
-        <div class="col-md-3 col-lg-3 sticky bottom-xs">
-          <div class="side-bar">
-            <div class="side-bar--posts">
-              <h2 class="side-title">Popular Posts</h2>
-              <%#= render partial: 'popular_post', collection: @popular_posts, as: :popular_post%>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+
+    <p>
+      <%= attachment_image_tag @blog, :image, format: 'jpg', fallback: "no_image.jpg", size: "200x200" %>
+      <%= @blog.title %>
+      <%= @blog.summary %>
+      <%= @blog.body %>
+    </p>
+
+    
+
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+    <%= link_to 'Back', blogs_path %>
   </div>
 </div>
 
