@@ -64,3 +64,6 @@ gem 'mini_magick'
 #backend
 gem 'kaminari'
 gem 'meta-tags'
+
+#frontend
+gem 'font-awesome-sass'
