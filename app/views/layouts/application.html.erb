@@ -22,6 +22,7 @@
             <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）　</br>　→　<%= @elapsed_date %>日経過</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "blog", blogs_path, class: "<fas fa-th-list" %>　</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "genre", admins_genres_path %>　</a></li>
+            <li class="nav-item"><a href="" class="nav-link"><%= link_to "category", admins_categories_path %>　</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "footprint", admins_footprints_path %>　</a></li>
           </ul>
         </div>
