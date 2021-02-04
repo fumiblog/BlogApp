@@ -1,5 +1,6 @@
-@import "~bootstrap/scss/bootstrap";
 @import '~trix/dist/trix';
+@import "~bootstrap/scss/bootstrap";
+
 
 .row_top {
   margin-top: 60px;
@@ -430,3 +431,11 @@ th {
     margin-right: 0;
   }
 }
+
+  .top-menu--list-item {
+    font-size: x-large;
+    &:hover {
+      font-size: xx-large;
+    }
+  }
+

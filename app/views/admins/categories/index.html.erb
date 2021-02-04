@@ -1,0 +1,37 @@
+<div class="container">
+  <h3>Category</h3>
+  <%= form_with model: @category, url: admins_category_path(@category), local: true do |f| %>
+  <div class="category_edit">
+    <p>
+      名称：
+      <%= f.text_field :name, :size =>"30" %>
+      <%= f.submit "更新", class: "btn btn-danger" %>
+    </p>
+  </div>
+  <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>記事数</th>
+          <th>not update</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= link_to category.name, admins_categories_path(:category_id => category.id) %></td>
+          <td><%= category.blogs.count.to_i %></td>
+          <td>
+            <% if category.blogs.count === 0 %>
+              早く投稿してね！
+            <% else %>
+              日経過
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  
+</div>
