@@ -5,11 +5,11 @@
       <table class="top-menu--list">
         <tr>
           <th><%= link_to "All", root_path, class: "top-menu--list-item" %></th>
-          <th><%= link_to "Life", root_path(:category_id => "1"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Tech", root_path(:category_id => "2"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Gadgets", root_path(:category_id => "3"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "Music", root_path(:category_id => "4"), class: "top-menu--list-item" %></th>
-          <th><%= link_to "About", root_path(:category_id => "5"), class: "top-menu--list-item" %></th>
+          <% @categories.each do |category| %>
+            <th>
+              <%= link_to category.name, root_path(:category_id => category.id), class: "top-menu--list-item" %>
+            </th>
+          <% end %>
         </tr>
       </table>
     </div>
