@@ -20,9 +20,8 @@
     <%= form.collection_select :category_id, @categories, :id, :name, include_blank: "Category" %></br>
     <%= form.label :要約 %>
     <%= form.text_field :summary, :size => "80" %></br>
-    <%= form.label :記事内容（最大１４０文字） %>
-    <%= form.rich_text_area :body, class: 'form-control js-text' %>
-    <p class="js-text-count pull-right"></p>
+    <%= form.label :記事内容 %>
+    <%= form.rich_text_area :body %>
   </div>
 
   <div class="actions">
