@@ -1,1 +1,12 @@
-<h1>Genre edit 作成中</h1>
+<div class="container">
+  <div class="genre_edit">
+    <h3>ジャンル編集</h3>
+    <%= form_with model: @genre, url: admins_genre_path(@genre), local: true do |f| %>
+    <p>
+      名称：
+      <%= f.text_field :name %>
+      <%= f.submit "更新", class: "btn btn-success" %>
+    </p>
+    <% end %>
+  </div>
+</div>

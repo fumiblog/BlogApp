@@ -11,6 +11,16 @@ class Admins::GenresController < ApplicationController
     redirect_to admins_genres_path
   end
 
+  def edit
+    @genre = Genre.find(params[:id])
+  end
+
+  def update
+    @genre = Genre.find(params[:id])
+    @genre.update(genre_params)
+    redirect_to admins_genres_path
+  end
+
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
