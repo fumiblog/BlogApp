@@ -1,5 +1,14 @@
 <div class="container">
   <div class="row">
+
+    <marquee>
+      <% @blogs.each do |blog| %>
+        <%= link_to blog do %>
+          <span><%= blog.title %>　/　</span>
+        <% end %>
+      <% end %>  
+    </marquee>
+
     <div class="col-md-7">
     <h3>Blogs</h3>
     <% @blogs.each do |blog| %>
@@ -41,6 +50,9 @@
       </div>
     </div>
   </div>
+  
+
+
 </div>
     
  
