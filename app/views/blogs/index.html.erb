@@ -3,6 +3,10 @@
 <div class="container">
   <h1>Blogs</h1>
   <div class="row">
+    <%= link_to 'New Blog', new_blog_path, data: {"turbolinks" => false} %>
+    <div class="text-right">
+      <%= link_to "CSV出力", blogs_path(format: :csv), class: "btn btn-outline-success" %>
+    </div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -14,6 +18,7 @@
       </thead>
 
       <tbody>
+        
         <% @blogs.each do |blog| %>
           <tr>
             <td><%= blog.title %></td>
@@ -25,7 +30,7 @@
       </tbody>
     </table>
     <br>
-    <%= link_to 'New Blog', new_blog_path, data: {"turbolinks" => false} %>
+    
   </div>
 </div>
 
