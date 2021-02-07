@@ -20,9 +20,13 @@ class Admins::FootprintsController < ApplicationController
   end
 
   def edit
-    @footprint = Footprint.find(params[:id])
     @genres = Genre.all
-    @footprint.update
+    @footprint = Footprint.find(params[:id])
+  end
+  
+  def update
+    @footprint = Footprint.find(params[:id])
+    @footprint.update(footprint_params)
     redirect_to admins_footprints_path
   end
 
@@ -33,10 +37,17 @@ class Admins::FootprintsController < ApplicationController
     redirect_to admins_footprints_path
   end
 
+
   private
 
   def footprint_params
-    params.require(:footprint).permit(:date, :title, :price, :body, :genre_id)
+    params.require(:footprint).permit(
+      :date,
+      :title,
+      :price,
+      :body,
+      :genre_id
+    )
   end
 
 end

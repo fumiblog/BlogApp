@@ -9,6 +9,9 @@
         金額：<%= f.number_field :price %></br>
         備考：<%= f.text_field :body, :size=>"40" %></p>
       <%= f.submit '追加', class: "btn btn-primary"%>
+      <div class="text-right">
+        <%= link_to "CSV出力", admins_footprints_path(format: :csv), class: "btn btn-outline-success" %>
+      </div>
   </div>    
   <% end %>
   <table class="table table-striped">
@@ -36,5 +39,6 @@
         </tr>
       <% end %>
     </tbody>
+    
   </table>
 </div>

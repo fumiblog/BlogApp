@@ -19,7 +19,7 @@
         </button>
         <div id="menu" class="collapse navbar-collapse">
           <ul class="navbar-nav">
-            <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）　</br>　→　<%= @elapsed_date %>日経過</a></li>
+            <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "blog", blogs_path, class: "<fas fa-th-list" %>　</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "genre", admins_genres_path %>　</a></li>
             <li class="nav-item"><a href="" class="nav-link"><%= link_to "category", admins_categories_path %>　</a></li>
@@ -27,7 +27,7 @@
           </ul>
         </div>
       </nav>
-      <%= image_tag 'code3.png' %>
+      <%= image_tag 'code3.png', size: "width: auto;" %>
     </header>
     <%= yield %>
     <div class="container">
