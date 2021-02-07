@@ -1,1 +1,14 @@
-<h1>footprint edit 作成中</h1>
+<div class="container">
+  <div class="page_title"><h3>足跡変更</h3></div></br>
+  <%= form_with model: @footprint, url: admins_footprint_path(@footprint), local: true do |f| %>
+  <div class="footprint_edit">
+      <p>
+        日付：<%= f.date_field :date %>
+        項目：<%= f.text_field :title %>
+        ジャンル：<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "Genre" %></p>
+        金額：<%= f.number_field :price %></br>
+        備考：<%= f.text_field :body, :size=>"40" %></p>
+      <%= f.submit '変更', class: "btn btn-primary"%>
+  </div>    
+  <% end %>
+</div>
