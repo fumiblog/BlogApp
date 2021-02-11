@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="admins_edit">
+    <%= form_with model: @admin, url: admins_admin_path(@admin), local: true do |f| %>
+    <P>
+      名前：
+      <%= f.text_field :name %>
+      <%= f.submit "更新" %>
+    </P>
+    <% end %>
+  </div>
+</div>
