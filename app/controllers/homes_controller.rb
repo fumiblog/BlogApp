@@ -1,9 +1,7 @@
 class HomesController < ApplicationController
   def top
-    # @elapsed_date = (Date.current - Date.new(2020, 9, 30)).numerator
-    # byebug
     if params[:category_id] === nil
-      @blogs = Blog.all
+      @blogs = Blog.all.order(updated_at: :desc)
     else
       @blogs = Blog.where(category_id: params[:category_id])
     end

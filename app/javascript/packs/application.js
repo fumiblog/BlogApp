@@ -16,6 +16,7 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+require('jquery')
 
 // require("@rails/ujs").start()
 // require("@rails/activestorage").start()
@@ -26,3 +27,4 @@ require("@rails/actiontext")
 // import "../stylesheets/reset"
 // import "../stylesheets/actiontext"
 // import "../stylesheetscustom/"
+
