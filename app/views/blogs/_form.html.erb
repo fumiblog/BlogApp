@@ -16,6 +16,8 @@
     <%= form.attachment_field :image %>
     <%= form.label :記事タイトル %>
     <%= form.text_field :title, :size => "40" %></br>
+    <%= form.label :web_address %>
+    <%= form.text_field :web_address, :size => "40" %></br>
     <%= form.label :カテゴリ %>
     <%= form.collection_select :category_id, @categories, :id, :name, include_blank: "Category" %></br>
     <%= form.label :要約 %>
