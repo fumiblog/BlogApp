@@ -2,8 +2,15 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'いまいちなサイト',
+      title: 'トップページ',
       reverse: true,
+      charset: 'utf-8',
+      description: 'ご訪問ありがとうございます。blogをruby on ralesで作成しました。',
+      keywords: 'rails,ruby,プログラミング,bike,coffee',
       separator: '|',
+      icon: [
+        { href: image_url('coffee.png') }
+      ],
       og: defalut_og,
       twitter: default_twitter_card
     }
