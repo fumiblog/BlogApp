@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_categories, only: [ :show, :new, :edit, :update ]
 
   # GET /blogs or /blogs.json
   def index
@@ -9,19 +10,16 @@ class BlogsController < ApplicationController
   # GET /blogs/1 or /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    @categories = Category.all
     # byebug
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
-    @categories = Category.all
   end
 
   # GET /blogs/1/edit
   def edit
-    @categories = Category.all
   end
 
   # POST /blogs or /blogs.json
@@ -70,5 +68,9 @@ class BlogsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def blog_params
       params.require(:blog).permit(:title, :body, :summary, :image, :category_id, :web_address)
+    end
+
+    def set_categories
+      @categories = Category.all
     end
 end
