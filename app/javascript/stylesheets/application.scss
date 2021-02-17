@@ -441,4 +441,28 @@ th {
     }
   }
 
+.row.dash {
+  height: 200px;
+}
+.row.row-cols-5 {
+  height: 200px;
+}
 
+.col.test {
+  background-color: gray;
+  margin: 20px;
+  height: auto;
+}
+
+.col.test1 {
+  background-color: yellow;
+  margin: 10px;
+  width: auto;
+  height: auto;
+}
+
+.dashboard_menu {
+  height: 600px;
+  background-color: gray;
+  margin: 20px;
+}

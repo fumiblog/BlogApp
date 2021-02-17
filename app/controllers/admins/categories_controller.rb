@@ -1,4 +1,6 @@
 class Admins::CategoriesController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @categories = Category.all
     if params[:category_id] === nil

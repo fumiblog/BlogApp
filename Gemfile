@@ -64,6 +64,7 @@ gem 'mini_magick'
 #backend
 gem 'kaminari'
 gem 'meta-tags'
+gem 'acts-as-taggable-on', '~> 7.0'
 
 #frontend
 gem 'font-awesome-sass'
