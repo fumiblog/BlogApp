@@ -1,5 +1,6 @@
 <% set_meta_tags title: @blog.title, description: @blog.summary, og: { url: @blog.web_address, type: 'blog', image: @blog.image } %>
-<%= request.class %>
+<%= render 'shared/header_image' %>
+<%#= request.class %>
   <div class="top-menu">
     <div class="container-fluid">
       <table class="top-menu--list">
