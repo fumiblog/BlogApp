@@ -5,4 +5,8 @@ class Blog < ApplicationRecord
   acts_as_taggable
 
   validates :title, :category_id, :web_address, presence: true
+ 
+
 end
+
+

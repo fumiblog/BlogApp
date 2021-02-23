@@ -5,6 +5,11 @@ class BlogsController < ApplicationController
   # GET /blogs or /blogs.json
   def index
     @blogs = Blog.all
+    # if params === nil
+    #   @blogs = Blog.all
+    # else
+    #   @blogs = Blog.search(params)
+    # end
   end
 
   # GET /blogs/1 or /blogs/1.json
@@ -66,7 +71,15 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :summary, :image, :category_id, :web_address, :tag_list)
+      params.require(:blog).permit(
+        :title,
+        :body,
+        :summary,
+        :image,
+        :category_id,
+        :web_address,
+        :tag_list
+      )
     end
 
     def set_categories

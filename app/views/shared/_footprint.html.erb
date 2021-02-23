@@ -1,0 +1,15 @@
+<div class="footprint">
+  <p class="dashboard_message">Came back Fumihisa!</p>
+  <% @footprints.each do |footprint| %>
+    <p>
+      <%= footprint.date.strftime('%Y年%m月%d日') %>：
+      <%= footprint.title %>　
+      <% if Date.current - footprint.date <= 30 %>
+        <%= (Date.current - footprint.date).to_i %>日経過
+      <% else %>
+        <%= (Date.current - footprint.date).to_i / 365 %>年
+        <%= (Date.current - footprint.date).to_i % 365 / 30 %>ヶ月経過
+      <% end %>
+    </p>
+  <% end %>
+</div>

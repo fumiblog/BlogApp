@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%# <title>【必見】blog作成！fumiblog</title> %>
     <%= display_meta_tags(default_meta_tags) %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,24 +9,11 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> %>
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
-    <div id="carouselsample-1" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag 'code3.png', class: 'd-block w-100' %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'coffee4.png', class: 'd-block w-100' %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'code3.png', class: 'd-block w-100' %>
-        </div>
-      </div>
-    </div>
     <%= yield %>
     <div class="container">
       <footer class="text-center text-muted py-4">
