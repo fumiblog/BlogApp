@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>最近更新の15タイトル</th>
+        </tr>
+      </thead>
+      <% @blogs.each do |blog| %>
+      <tbody>
+        <tr>
+          <td><%= link_to blog.title, blog_path(blog) %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
