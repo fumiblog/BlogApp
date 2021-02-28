@@ -73,3 +73,4 @@ gem 'tire'
 
 #frontend
 gem 'font-awesome-rails'
+gem 'chartkick'

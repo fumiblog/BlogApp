@@ -1,24 +1,16 @@
 <div class="container-fruid">
   <div class="row">
-    <div class="col-md-4">
-        <div class="dashboard_menu">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
+    <div class="col-md-3">
+      <div class="visible orverflow-auto dashboard_menu m-3 p-2 bg-dark" style= "width:100%; height:1000px;">
+        <p class="h4 text-white p-3"><i class="fas fa-home"></i><%= link_to " home", admins_dashboards_path, :style=>"color:white;" %></p>
+        <p class="h4 text-white p-3"><i class="fas fa-blog"></i><%= link_to " blogs", blogs_path, :style=>"color:white;" %></p>
+        <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " genres", admins_genres_path, :style=>"color:white;" %></p>
+        <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " categories", admins_categories_path, :style=>"color:white;" %></p>
+        <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " worktype", admins_work_types_path, :style=>"color:white;" %></p>
       </div>
-      <div class="col-md-8">
+        
+    </div>
+      <div class="col-md-9">
       <div class="row dash1">
       </div>
 

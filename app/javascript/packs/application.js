@@ -17,12 +17,16 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 require('jquery')
+require("chartkick") // 21.2.28追記
+require("chart.js") // 21.2.28追記
 
 // require("@rails/ujs").start()
 // require("@rails/activestorage").start()
 // require("channels")
 // require.context('../images', true)
 // require("@rails/actiontext")
+//= require chartkick
+//= require Chart.bundle
 
 // import "../stylesheets/reset"
 // import "../stylesheets/actiontext"
