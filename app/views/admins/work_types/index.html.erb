@@ -1,0 +1,33 @@
+<div class="container">
+  
+    <div class="work_types_title"><h3>Work types</h3></div><br>
+    <%= form_with model: @work_type, url: admins_work_types_path(@work_type), local: true do |f| %>
+    <div class="work_type_create">
+        <p>ジャンル名：<%= f.text_field :name %>
+        <%= f.submit '追加', class: "btn btn-primary"%></p>
+    </div>    
+    <% end %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Work type</th>
+          <th>数量</th>
+          <th>会計合計</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @work_types.each do |work_type| %>
+          <tr>
+            <td><%= link_to work_type.name, admins_work_times_path(:work_type_id => work_type.id) %></td>
+            <td class="number"><%#= work_type.work_time.count %></td>
+            <td class="number"><%#= work_type.work_times.sum(:price).to_s(:delimited) %></td>
+            <td><%= link_to "変更", edit_admins_work_type_path(work_type), class: "btn btn-warning" %></td>
+            <td><%= link_to "削除", admins_work_type_path(work_type), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+</div>

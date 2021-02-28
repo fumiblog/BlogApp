@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  worktype_id: 1
+  start: 2021-02-28 10:08:36
+  goal: 2021-02-28 10:08:36
+
+two:
+  title: MyString
+  worktype_id: 1
+  start: 2021-02-28 10:08:36
+  goal: 2021-02-28 10:08:36
