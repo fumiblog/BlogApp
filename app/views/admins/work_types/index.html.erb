@@ -3,7 +3,7 @@
     <div class="work_types_title"><h3>Work types</h3></div><br>
     <%= form_with model: @work_type, url: admins_work_types_path(@work_type), local: true do |f| %>
     <div class="work_type_create">
-        <p>ジャンル名：<%= f.text_field :name %>
+        <p>worktype：<%= f.text_field :name %>
         <%= f.submit '追加', class: "btn btn-primary"%></p>
     </div>    
     <% end %>
