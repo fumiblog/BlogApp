@@ -10,9 +10,19 @@ class Admins::WorkTypesController < ApplicationController
     redirect_to admins_work_types_path
   end
 
+  def edit
+    @work_type = WorkType.find(params[:id])
+  end
+
+  def update
+    @work_type = WorkType.find(params[:id])
+    @work_type.update(work_type_params)
+    redirect_to admins_work_types_path
+  end
+
   def destroy
-    @work_type = WorkType(params[:id])
-    @work_type.destroy
+    @work_type = WorkType.find(params[:id])
+    @work_type.delete
     redirect_to admins_work_types_path
   end
 
