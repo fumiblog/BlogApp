@@ -1,10 +1,10 @@
 <div class="container">
   
     <div class="work_times_title"><h3>Work times</h3></div><br>
-    <%= form_with model: @work_time, url: admins_work_times_path(@work_time), local: true do |f| %>
+    <%= form_with model: @work_time, url: admins_work_times_path, local: true do |f| %>
     <div class="work_time_create">
         <p>
-          ジャンル名：<%= f.text_field :name %>
+          worktime:<%= f.text_field :title %>
           <%= f.submit '追加', class: "btn btn-primary"%>
         </p>
     </div>    

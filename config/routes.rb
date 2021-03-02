@@ -27,9 +27,9 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :create, :edit, :update]
     resources :footprints, only: [:index, :create, :edit, :update, :destroy]
     resources :admins, only: [:edit, :update]
-    resources :dashboards, only: [:index]
-    resources :work_types, only: [:index, :create, :edit, :destroy]
-    resources :work_times, only: [:index, :create, :edit, :destroy]
+    resources :dashboards, only: [:index, :create]
+    resources :work_types, only: [:index, :create, :edit, :update, :destroy]
+    resources :work_times, only: [:new, :index, :create, :edit, :update, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
