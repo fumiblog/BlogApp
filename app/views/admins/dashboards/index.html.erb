@@ -6,7 +6,6 @@
         <p class="h4 text-white p-3"><i class="fas fa-blog"></i><%= link_to " blogs", blogs_path, :style=>"color:white;" %></p>
         <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " genres", admins_genres_path, :style=>"color:white;" %></p>
         <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " categories", admins_categories_path, :style=>"color:white;" %></p>
-        <p class="h4 text-white p-3"><i class="fas fa-hospital"></i><%= link_to " worktype", admins_work_types_path, :style=>"color:white;" %></p>
       </div>
         
     </div>
@@ -17,46 +16,24 @@
         <div class="col alert alert-primary text-primary m-3 p-3" style= "height:160px;">
           <%= render 'shared/footprint'%>
           <img src="" alt="">
-        </div>
-        <div class="col bg-light text-secondary m-3 p-3" style= "height:160px;">
-        <%= form_with model: @work_time, url: admins_work_times_path(@work_time), local: true do |f| %>
+          </div>
+          <div class="col bg-light text-secondary m-3 p-3" style= "height:160px;">
+        
           <div class="h1" id="timer">00:00.000</div>
-          <p>Title : <%= f.text_field :title, :size => "40" %></p>
-          <%= f.submit "Start" %>
           <button id="start">Start</button>
           <button id="stop">Stop</button>
           <button id="reset">Reset</button>
           <%#= image_tag "ruby-on-rails.jpg", width: '15%', height: '65%' %>
-        <% end %>
         </div>
       </div>
-      <div class="row dash">
-        <div class="col bg-light text-secondary m-3 p-3" style= "height:150px;">
-          1-3
+        <div class="row dash">
+          <div class="col bg-light text-secondary m-3 p-3" style= "height:150px;">
+            1-3
+          </div>
+          <div class="col bg-light text-secondary m-3 p-3" style= "height:600px;">
+            <%= line_chart Footprint.group(:date).count, width: '40%', height: '40%' %>
+          </div>
         </div>
-        <div class="col bg-light text-secondary m-3 p-3" style= "height:150px;">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>title</th>
-                  <th>所要時間</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <%#= form_with model: @form_with, url: admins_work_time_path(@form_with), local: true do |f| %>
-                <% @work_times.each do |worktime| %>
-                <tr>
-                  <td><%= work_time.title %></td>
-                  <td><%= worktime.goal - worktime.start %></td>
-                  <td><%= worktime.submit "Goal", id: "stop" %></td>
-                </tr>
-               <% end %>
-               <%# end %>
-              </tbody>
-            </table>
-        </div>
-      </div>
       <div class="row row-cols-5">
         <div class="col test1">
           2-1
