@@ -25,8 +25,6 @@ require("chart.js") // 21.2.28追記
 // require("channels")
 // require.context('../images', true)
 // require("@rails/actiontext")
-//= require chartkick
-//= require Chart.bundle
 
 // import "../stylesheets/reset"
 // import "../stylesheets/actiontext"
