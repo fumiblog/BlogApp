@@ -31,7 +31,8 @@
             1-3
           </div>
           <div class="col bg-light text-secondary m-3 p-3" style= "height:600px;">
-            <%= line_chart Footprint.group(:date).count, width: '40%', height: '40%' %>
+            <%#= line_chart Footprint.group(:date).count, width: '40%', height: '40%' %>
+            <%#= column_chart Footprint.group(:genre_id).sum(:price) %>
           </div>
         </div>
       <div class="row row-cols-5">
@@ -58,69 +59,87 @@
         </div>
       </div>
         <a href="https://shop-pro.jp/pricing">GMOペポバ「COLOR ME price」</a>
+        <%#= bar_chart Footprint.group(:genre_id).sum(:price) %>
+        <%#= bar_chart [1:100, 2:120] %>
+        <canvas id="genre_graph"></canvas>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+      'use strict';
 
-          <script>
-            'use strict';
+      
 
-            {
-              const timer = document.getElementById('timer');
-              const start = document.getElementById('start');
-              const stop = document.getElementById('stop');
-              const reset = document.getElementById('reset');
+      var ctx = document.getElemntById("genre_graph");
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: $('.genre_json').val()
+            datasets: [{
+              label: '分類毎支出',
+              backgroundColor: '#20B2AA',
+              data: $('.footprint_json').val()
+            }]
+          }
+        });
 
-              let startTime;
-              let timeoutId;
-              let elapsedTime = 0;
+      {
+        const timer = document.getElementById('timer');
+        const start = document.getElementById('start');
+        const stop = document.getElementById('stop');
+        const reset = document.getElementById('reset');
 
-              function countUp() {
-                const d = new Date(Date.now() - startTime + elapsedTime);
-                const m = String(d.getMinutes()).padStart(2, '0');
-                const s = String(d.getSeconds()).padStart(2, '0');
-                const ms = String(d.getMilliseconds()).padStart(3, '0');
-                timer.textContent = `${m}:${s}.${ms}`;
+        let startTime;
+        let timeoutId;
+        let elapsedTime = 0;
 
-                timeoutId = setTimeout(() => {
-                  countUp();
-                }, 10);
-              }
-              
-              function setButtonStateInitial(){
-                start.disabled = false;
-                stop.disabled = true;
-                reset.disabled = true;
-              }
-              function setButtonStateRunning(){
-                start.disabled = true;
-                stop.disabled = false;
-                reset.disabled = true;
-              }
-              function setButtonStateStopped(){
-                start.disabled = false;
-                stop.disabled = true;
-                reset.disabled = false;
-              }
+        function countUp() {
+          const d = new Date(Date.now() - startTime + elapsedTime);
+          const m = String(d.getMinutes()).padStart(2, '0');
+          const s = String(d.getSeconds()).padStart(2, '0');
+          const ms = String(d.getMilliseconds()).padStart(3, '0');
+          timer.textContent = `${m}:${s}.${ms}`;
 
-              setButtonStateInitial();
+          timeoutId = setTimeout(() => {
+            countUp();
+          }, 10);
+        }
+        
+        function setButtonStateInitial(){
+          start.disabled = false;
+          stop.disabled = true;
+          reset.disabled = true;
+        }
+        function setButtonStateRunning(){
+          start.disabled = true;
+          stop.disabled = false;
+          reset.disabled = true;
+        }
+        function setButtonStateStopped(){
+          start.disabled = false;
+          stop.disabled = true;
+          reset.disabled = false;
+        }
 
-              start.addEventListener('click', () => {
-                setButtonStateRunning();
-                startTime = Date.now();
-                countUp();
-              });
+        setButtonStateInitial();
 
-              stop.addEventListener('click', () => {
-                setButtonStateStopped();
-                clearTimeout(timeoutId);
-                elapsedTime += Date.now() - startTime;
-              });
+        start.addEventListener('click', () => {
+          setButtonStateRunning();
+          startTime = Date.now();
+          countUp();
+        });
 
-              reset.addEventListener('click', () => {
-                setButtonStateInitial();
-                timer.textContent = '00:00.000';
-                elapsedTime = 0;
-              });
-            }
-          </script>
+        stop.addEventListener('click', () => {
+          setButtonStateStopped();
+          clearTimeout(timeoutId);
+          elapsedTime += Date.now() - startTime;
+        });
+
+        reset.addEventListener('click', () => {
+          setButtonStateInitial();
+          timer.textContent = '00:00.000';
+          elapsedTime = 0;
+        });
+      }
+    </script>
   </div>
