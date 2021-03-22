@@ -71,18 +71,29 @@
 
       var ctx = document.getElementById("genre_graph");
         new Chart(ctx, {
-          type: 'bar',
+          type: 'horizontalBar',
           data: {
-            // labels: $('.genre_json').val(),
-            labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
+            labels: gon.genre_json,
+            // labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
             datasets: [{
               label: '分類毎支出',
               backgroundColor: '#20B2AA',
               // data: $('.footprint_json').val()
-              data: [1363338, 1000000, 1050390, 1000000]
+              // data: [1363338, 0, 1050390, 1000000]
+              data: gon.footprint_json
             }]
           }
         });
+
+        var options = {
+          scales: {
+              xAxes: [{
+                  ticks: {
+                      min: 500000
+                  }
+              }]
+          }
+      };
 
       {
         const timer = document.getElementById('timer');
