@@ -30,10 +30,8 @@
           <div class="col bg-light text-secondary m-3 p-3" style="position: relative; max-height:17vh; width:35vw">
             <canvas id="genre_graph" height="100"></canvas>
           </div>
-          <div class="col bg-light text-secondary m-3 p-3" style= "height:600px;">
-            <%#= line_chart Footprint.group(:date).count, width: '40%', height: '40%' %>
-            <%#= column_chart Footprint.group(:genre_id).sum(:price) %>
-            
+          <div class="col bg-light text-secondary m-3 p-3" style="position: relative; max-height:17vh; width:35vw">
+            <canvas id="blog_count" height="100"></canvas>
           </div>
         </div>
       <%# <div class="row row-cols-5">
@@ -71,18 +69,52 @@
 
       var ctx = document.getElementById("genre_graph");
         new Chart(ctx, {
-          type: 'bar',
+          type: 'horizontalBar',
           data: {
-            // labels: $('.genre_json').val(),
-            labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
+            labels: gon.genre_json,
+            // labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
             datasets: [{
               label: '分類毎支出',
               backgroundColor: '#20B2AA',
               // data: $('.footprint_json').val()
-              data: [1363338, 1000000, 1050390, 1000000]
+              // data: [1363338, 0, 1050390, 1000000]
+              data: gon.footprint_json
             }]
           }
         });
+
+        var options = {
+          scales: {
+              xAxes: [{
+                  ticks: {
+                      min: 500000
+                  }
+              }]
+          }
+      };
+      
+      var ctx = document.getElementById("blog_count");
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: gon.blog_writingdate,
+            datasets: [{
+              label: 'ブログ作成件数',
+              backgroundColor: '#20B2AA',
+              data: gon.blog_writingcount
+            }]
+          }
+        });
+
+        // var opsitons = {
+        //   scales: {
+        //     xAxes: [{
+        //       ticks: {
+        //         min: 
+        //       }
+        //     }]
+        //   }
+        // };
 
       {
         const timer = document.getElementById('timer');

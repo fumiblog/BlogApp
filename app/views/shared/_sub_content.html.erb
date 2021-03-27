@@ -3,20 +3,20 @@
     <div class="row sub">
       <div class="col-md-8 col-xs-12 profile">
         <h2 class="profile-title">About Me</h2>
-        <div class="col-md-5 col-sm-5 col-xs-5 profile-image">
-          <%= image_tag 'fumihisa', class: "profile-image--item" %>
+        <div class="col-md-4 col-sm-4 col-xs-4 profile-image">
+          <%= image_tag 'imagefumiblog', width: '50%', height: '50%', class: "profile-image--item" %>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-7 profile-info">
           <p class="profile-info--name">fumiblog</p>
           <div class="profile-info--link">
             <%= link_to "https://twitter.com/xringoxr", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
-              <%#= fa_icon "twitter 2x" %>
+              <%= fa_icon "twitter 2x" %>
             <% end %>
             <%= link_to "https://www.instagram.com/hirozak/", {class: "profile-info--sns icon-sns icon-instagram", target: "_blank"} do %>
-              <%#= fa_icon "instagram 2x" %>
+              <%= fa_icon "instagram 2x" %>
             <% end %>
             <%= link_to "https://github.com/hirozak", {class: "profile-info--sns icon-sns icon-github", target: "_blank"} do %>
-              <%#= fa_icon "github 2x" %>
+              <%= fa_icon "github 2x" %>
             <% end %>
           </div>
           <div class="profile-info--description">
