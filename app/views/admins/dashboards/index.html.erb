@@ -30,10 +30,8 @@
           <div class="col bg-light text-secondary m-3 p-3" style="position: relative; max-height:17vh; width:35vw">
             <canvas id="genre_graph" height="100"></canvas>
           </div>
-          <div class="col bg-light text-secondary m-3 p-3" style= "height:600px;">
-            <%#= line_chart Footprint.group(:date).count, width: '40%', height: '40%' %>
-            <%#= column_chart Footprint.group(:genre_id).sum(:price) %>
-            
+          <div class="col bg-light text-secondary m-3 p-3" style="position: relative; max-height:17vh; width:35vw">
+            <canvas id="blog_count" height="100"></canvas>
           </div>
         </div>
       <%# <div class="row row-cols-5">
@@ -94,6 +92,29 @@
               }]
           }
       };
+      
+      var ctx = document.getElementById("blog_count");
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: gon.blog_writingdate,
+            datasets: [{
+              label: 'ブログ作成件数',
+              backgroundColor: '#20B2AA',
+              data: gon.blog_writingcount
+            }]
+          }
+        });
+
+        // var opsitons = {
+        //   scales: {
+        //     xAxes: [{
+        //       ticks: {
+        //         min: 
+        //       }
+        //     }]
+        //   }
+        // };
 
       {
         const timer = document.getElementById('timer');
