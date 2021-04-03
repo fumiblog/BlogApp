@@ -5,35 +5,47 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="menu" class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）</a></li>
           <li class="nav-item"><a href="<%= blogs_path %>" class="nav-link">blog</a></li>
-          <li class="nav-item"><a href="<%= users_user_path(current_user) %>" class="nav-link">user</a></li>
+          <li class="nav-item"><a href="<%= users_user_path(current_user) %>" class="nav-link">user</a></li>  
+        </ul>
+        <ul class="navbar-nav">
           <li class="nav-item"><a href="<%= destroy_user_session_path %>" data-method="delete" class="nav-link">logout</a></li>
-        <% elsif admin_signed_in? %>
+          <%= image_tag 'imagefumiblog.jpg', class: "rounded-circle", size: "40x40" %>
+        </ul>
+      <% elsif admin_signed_in? %>
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）</a></li>
           <li class="nav-item"><a href="<%= admins_dashboards_path %>" class="nav-link">dashboard</a></li>
           <li class="nav-item"><a href="<%= blogs_path %>" class="nav-link">blog</a></li>
           <li class="nav-item"><a href="<%= admins_genres_path %>" class="nav-link">genre</a></li>
           <li class="nav-item"><a href="<%= admins_categories_path %>" class="nav-link">category</a></li>
           <li class="nav-item"><a href="<%= admins_footprints_path %>" class="nav-link">footprint</a></li>
+        </ul>
+        <ul class="navbar-nav">
           <li class="nav-item"><a href="<%= destroy_admin_session_path %>" data-method="delete" class="nav-link">logout</a></li>
           <%= form_tag(root_path, method: :get) do %>
             <%= text_field_tag "search" %>
             <%= submit_tag("Search") %>
           <% end %>
-        <% else %>
+          <%= image_tag 'fumiblog2.jpg', class: "rounded-circle", size: "40x40" %>
+        </ul>
+      <% else %>
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item"><a href="" class="nav-link">　<%= Date.current.strftime('%Y年%m月%d日') %>（<%= Time.now.strftime("%A") %>）</a></li>
           <li class="nav-item"><a href="<%= new_user_session_path %>" class="nav-link">会員の方</a></li>
           <li class="nav-item"><a href="<%= new_user_registration_path %>" class="nav-link">初めての方</a></li>
           <li class="nav-item"><a href="<%= new_user_registration_path %>" class="nav-link">初めての方</a></li>
+        </ul>
+        <ul class="navbar-nav">
           <%= form_tag(root_path, method: :get) do %>
             <%= text_field_tag "search" %>
             <%= submit_tag("Search") %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
+      <% end %>
     </div>
   </nav>
 </header>
