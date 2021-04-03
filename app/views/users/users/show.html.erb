@@ -54,14 +54,14 @@
         new Chart(ctx, {
           type: 'horizontalBar',
           data: {
-            labels: gon.genre_json,
-            // labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
+            // labels: gon.genre_json,
+            labels: ["HomePayment", "recruit", "HomeApPliance", " insurance"],
             datasets: [{
               label: '分類毎支出',
               backgroundColor: '#20B2AA',
               // data: $('.footprint_json').val()
-              // data: [1363338, 0, 1050390, 1000000]
-              data: gon.footprint_json
+              data: [1363338, 0, 1050390, 1000000]
+              // data: gon.footprint_json
             }]
           }
         });
