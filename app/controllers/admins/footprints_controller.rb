@@ -17,7 +17,8 @@ class Admins::FootprintsController < ApplicationController
     @footprint = Footprint.new(footprint_params)
     @genres = Genre.all
     @footprint.save
-    redirect_to admins_footprints_path
+    # byebug
+    redirect_to admins_footprints_path(genre_id: @footprint.genre_id)
   end
 
   def edit
@@ -28,7 +29,7 @@ class Admins::FootprintsController < ApplicationController
   def update
     @footprint = Footprint.find(params[:id])
     @footprint.update(footprint_params)
-    redirect_to admins_footprints_path
+    redirect_to admins_footprints_path(genre_id: @footprint.genre_id)
   end
 
   def destroy

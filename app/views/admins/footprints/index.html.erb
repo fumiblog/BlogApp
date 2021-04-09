@@ -4,17 +4,17 @@
   <div class="footprint_create">
       <p>
         日付：<%= f.date_field :date %>
-        項目：<%= f.text_field :title %>
+        項目：<%= f.text_field :title, :size=>"30"  %>
         ジャンル：<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "Genre" %></p>
-        金額：<%= f.number_field :price %></br>
-        備考：<%= f.text_field :body, :size=>"40" %></p>
+        金額：<%= f.number_field :price, value: 0 %></br>
+        備考：<%= f.text_field :body, :size=>"50" %></p>
       <%= f.submit '追加', class: "btn btn-primary"%>
       <div class="text-right">
         <%= link_to "CSV出力", admins_footprints_path(format: :csv), class: "btn btn-outline-success" %>
       </div>
   </div>    
   <% end %>
-  <table class="table table-striped">
+  <table class="table table-striped small">
     <thead>
       <tr>
         <th>日付</th>
@@ -34,8 +34,8 @@
           <td><%= footprint.genre.name %></td>
           <td class="number"><%= footprint.price.to_s(:delimited) %></td>
           <td><%= footprint.body %></td>
-          <td><%= link_to "変更", edit_admins_footprint_path(footprint), class: "btn btn-warning" %></td>
-          <td><%= link_to "削除", admins_footprint_path(footprint), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></td>
+          <td><%= link_to "変更", edit_admins_footprint_path(footprint), class: "btn btn-warning btn-sm" %></td>
+          <td><%= link_to "削除", admins_footprint_path(footprint), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
