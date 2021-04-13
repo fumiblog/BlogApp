@@ -4,6 +4,7 @@
     <%= form_with model: @genre, url: admins_genres_path(@genre), local: true do |f| %>
     <div class="genre_create">
         <p>ジャンル名：<%= f.text_field :name %>
+        <%= f.check_box :target, :as => :boolean, checked:false %> 集計対象
         <%= f.submit '追加', class: "btn btn-primary"%></p>
     </div>    
     <% end %>
@@ -11,8 +12,9 @@
       <thead>
         <tr>
           <th>ジャンル名</th>
+          <th>集計対象</th>
           <th>会計数</th>
-          <th>会計合計</th>
+          <th class="text-right">合計 ■ <%= Footprint.where(:genre_id => Genre.where(:target => true).ids).sum(:price).to_s(:delimited) %></th>
           <th></th>
           <th></th>
         </tr>
@@ -22,10 +24,15 @@
         <%# @sum = 0 %>
           <tr>
             <td><%= link_to genre.name, admins_footprints_path(:genre_id => genre.id) %></td>
+            <td class="text-center">
+              <% if genre.target == true %>
+                ■
+              <% end %>
+            </td>
             <td class="number"><%= genre.footprints.count %></td>
             <td class="number"><%= genre.footprints.sum(:price).to_s(:delimited) %></td>
-            <td><%= link_to "変更", edit_admins_genre_path(genre), class: "btn btn-warning" %></td>
-            <td><%= link_to "削除", admins_genre_path(genre), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %></td>
+            <td><%= link_to "変更", edit_admins_genre_path(genre), class: "btn btn-warning btn-sm" %></td>
+            <td><%= link_to "削除", admins_genre_path(genre), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm" %></td>
           </tr>
         <% end %>
       </tbody>

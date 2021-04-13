@@ -4,12 +4,14 @@
   <div class="footprint_create">
       <p>
         日付：<%= f.date_field :date %>
-        項目：<%= f.text_field :title, :size=>"30"  %>
+        項目：<%= f.text_field :title, :size=>"30" %>
         ジャンル：<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "Genre" %></p>
         金額：<%= f.number_field :price, value: 0 %></br>
-        備考：<%= f.text_field :body, :size=>"50" %></p>
+        備考：<%= f.text_field :body, :size=>"50" %>
+        結果：<%= f.select :result, Footprint.results.keys.map {|k| [k, k]}, {} %></p>
       <%= f.submit '追加', class: "btn btn-primary"%>
       <div class="text-right">
+        <%= Footprint.joins(:genre).group("genres.name").count %>
         <%= link_to "CSV出力", admins_footprints_path(format: :csv), class: "btn btn-outline-success" %>
       </div>
   </div>    

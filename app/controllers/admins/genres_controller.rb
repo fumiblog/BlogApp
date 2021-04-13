@@ -4,6 +4,19 @@ class Admins::GenresController < ApplicationController
   def index
     @genres = Genre.all
     @genre = Genre.new
+    # @genre.target = 0
+    # @genres.each do |genre|
+    #   @genre_targets = genre.find(:target => true).footprints.sum
+    # end
+    # byebug
+    # if @genre_targets.target == true
+    #   @genre_target += @genre_targets.sum(:price)
+      # byebug
+    # end
+    # @genres.each.select do |genre|
+    #   genre.target == true
+    #   @genre_targets = genre.footprints.sum(:price)
+    # end
   end
 
   def create
@@ -32,7 +45,8 @@ class Admins::GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(
-      :name
+      :name,
+      :target
     )
   end
 

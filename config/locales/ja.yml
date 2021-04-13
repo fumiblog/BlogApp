@@ -1,0 +1,10 @@
+ja:
+  enums:
+    footprint:
+      result:
+        oubo: 応募中
+        ng: NG
+        ichiji: 一次面接
+        niji: 二次面接
+        sanji: 三次面接
+        naitei: 内定

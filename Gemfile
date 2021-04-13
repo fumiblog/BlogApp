@@ -70,6 +70,8 @@ gem 'elasticsearch-dsl', git: 'git://github.com/elasticsearch/elasticsearch-ruby
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'tire'
+gem 'enum_help'
+gem 'rails-i18n'
 
 #frontend
 gem 'font-awesome-rails'

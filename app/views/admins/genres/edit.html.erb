@@ -5,6 +5,7 @@
     <p>
       名称：
       <%= f.text_field :name %>
+      <%= f.check_box :target, :as => :boolean %> 集計対象
       <%= f.submit "更新", class: "btn btn-success" %>
     </p>
     <% end %>
