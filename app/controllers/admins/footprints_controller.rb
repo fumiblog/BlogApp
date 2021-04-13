@@ -48,7 +48,8 @@ class Admins::FootprintsController < ApplicationController
       :title,
       :price,
       :body,
-      :genre_id
+      :genre_id,
+      :result
     )
   end
 
