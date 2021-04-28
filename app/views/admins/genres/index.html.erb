@@ -1,13 +1,19 @@
 <div class="container">
-  
-    <div class="page_title"><h3>ジャンル</h3></div><br>
-    <%= form_with model: @genre, url: admins_genres_path(@genre), local: true do |f| %>
-    <div class="genre_create">
-        <p>ジャンル名：<%= f.text_field :name %>
-        <%= f.check_box :target, :as => :boolean, checked:false %> 集計対象
-        <%= f.submit '追加', class: "btn btn-primary"%></p>
-    </div>    
-    <% end %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="page_title"><h3>ジャンル</h3></div><br>
+      <%= form_with model: @genre, url: admins_genres_path(@genre), local: true do |f| %>
+      <div class="genre_create">
+          <p>ジャンル名：<%= f.text_field :name %>
+          <%= f.check_box :target, :as => :boolean, checked:false %> 集計対象
+          <%= f.submit '追加', class: "btn btn-primary"%></p>
+      </div>    
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <canvas id="genre-graph2"></canvas>
+    </div>
+  </div>
     <table class="table table-striped">
       <thead>
         <tr>
