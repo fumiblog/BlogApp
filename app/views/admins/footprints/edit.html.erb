@@ -7,7 +7,7 @@
         項目：<%= f.text_field :title %>
         ジャンル：<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "Genre" %></p>
         金額：<%= f.number_field :price %></br>
-        備考：<%= f.text_field :body, :size=>"40" %></p>
+        備考：<%= f.text_field :body, :size=>"70" %></p>
       <%= f.submit '変更', class: "btn btn-primary"%>
   </div>    
   <% end %>

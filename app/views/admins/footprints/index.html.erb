@@ -11,7 +11,7 @@
         結果：<%= f.select :result, Footprint.results.keys.map {|k| [k, k]}, {} %></p>
       <%= f.submit '追加', class: "btn btn-primary"%>
       <div class="text-right">
-        <%= Footprint.joins(:genre).group("genres.name").count %>
+        <%#= Footprint.joins(:genre).group("genres.name").count %>
         <%= link_to "CSV出力", admins_footprints_path(format: :csv), class: "btn btn-outline-success" %>
       </div>
   </div>    
